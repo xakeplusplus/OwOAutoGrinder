@@ -5,6 +5,8 @@ from json import dump
 from requests import get
 import time
 
+
+
 bot = commands.Bot(">", self_bot = True)
 
 dcToken = "" # YOUR DISCORD TOKEN HERE
@@ -148,7 +150,7 @@ async def grinder():
                 time.sleep(2)
                 await channelToSendIn.send("owo hunt")
                 start_time_hunt = time.time()
-            if
+            if (elapsed_time_owo > owoWait)
                 time.sleep(2)
                 await channelToSendIn.send("owo")
                 start_time_owo = time.time()
