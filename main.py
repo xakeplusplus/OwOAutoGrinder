@@ -150,7 +150,7 @@ async def grinder():
                 start_time_pray = time.time()
             if (elapsed_time_sellall > sellAllWait):
                 time.sleep(2)
-                await channelToSendIn.send("owo sellall")
+                await channelToSendIn.send("owo sell all")
                 start_time_sellall = time.time()
         
         
