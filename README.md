@@ -1,3 +1,5 @@
+WARNING: THIS CODE IS AGAINST THE RULES OF THE OWO BOT, PLEASE USE IT IF YOU ARE AWARE OF THE RISKS OF GETTING BANNED
+
 auto grinder for discord bot OwO
 
 paste ur token into the thing on the program.
