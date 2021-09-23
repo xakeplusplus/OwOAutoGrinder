@@ -4,7 +4,7 @@ from os.path import isfile
 from json import dump
 from requests import get
 import time
-
+from pypresence import Presence
 
 
 bot = commands.Bot(">", self_bot = True)
@@ -36,14 +36,7 @@ elapsed_time_sellall = 0
 
 firstTime = True
 
-latestVersionPastebin = "https://pastebin.com/raw/MZ3PG9KB"
-
-
-async def discordrpc():
-    RPC = Presence("890305556357734412")
-    RPC.connect()
-    RPC.update(state = "Grinding OwO | https://github.com/xakeplusplus/OwOAutoGrinder, small_image_key = "smallimg", small_image_text = "Brought to you by xakeplusplus, Unseens")
-    
+latestVersionPastebin = "https://pastebin.com/raw/MZ3PG9KB" 
 
 
 def versionChecker(version):
@@ -69,14 +62,23 @@ async def on_ready():
     versionChecker(int(version))
 
 
-@bot.command()
-async def rpc(ctx, str(option)):
-    await ctx.message.delete()
-    
-    if (option == "start"):
-        
-    
+RPC = Presence('890305556357734412', pipe=0)
+RPC.connect()
 
+@bot.command()
+async def rpc(ctx, option):
+    await ctx.message.delete()
+
+    option = str(option)
+
+    if (option == "start"):
+        print(RPC.update(state = "You Can Get It For Free!", 
+        details = "Grinding OwO | https://github.com/xakeplusplus/OwOAutoGrinder", 
+        small_image = "smallimg", small_text = "Brought to you by xakeplusplus, Unseens", 
+        large_image = "largeimg", large_text = "Automatic OwO Grinder", 
+        buttons = [{"label": "Download", "url": "https://github.com/xakeplusplus/OwOAutoGrinder"}]))
+    if (option == "stop"):
+        RPC.clear()
     
     
 @bot.command()
