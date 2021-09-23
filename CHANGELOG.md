@@ -1,3 +1,3 @@
 # __Version 2:__
--> Discord RPC Added
--> Fixed Unseens' Code
+1. Discord RPC Added
+1. Fixed Unseens' Code
