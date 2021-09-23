@@ -38,6 +38,14 @@ firstTime = True
 
 latestVersionPastebin = "https://pastebin.com/raw/MZ3PG9KB"
 
+
+async def discordrpc():
+    RPC = Presence("890305556357734412")
+    RPC.connect()
+    RPC.update(state = "Grinding OwO | https://github.com/xakeplusplus/OwOAutoGrinder, small_image_key = "smallimg", small_image_text = "Brought to you by xakeplusplus, Unseens")
+    
+
+
 def versionChecker(version):
     latestVersion = get("https://pastebin.com/raw/MZ3PG9KB").text
 
@@ -61,7 +69,16 @@ async def on_ready():
     versionChecker(int(version))
 
 
+@bot.command()
+async def rpc(ctx, str(option)):
+    await ctx.message.delete()
+    
+    if (option == "start"):
+        
+    
 
+    
+    
 @bot.command()
 async def setchannel(ctx):
     await ctx.message.delete()
@@ -150,7 +167,7 @@ async def grinder():
                 time.sleep(2)
                 await channelToSendIn.send("owo hunt")
                 start_time_hunt = time.time()
-            if (elapsed_time_owo > owoWait)
+            if (elapsed_time_owo > owoWait):
                 time.sleep(2)
                 await channelToSendIn.send("owo")
                 start_time_owo = time.time()
