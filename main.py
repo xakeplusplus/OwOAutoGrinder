@@ -1,7 +1,8 @@
 #from discord import channel, message
 from discord.ext import commands
+import discord
 from os.path import isfile
-from json import dump
+import json
 from requests import get
 import time
 from pypresence import Presence
@@ -11,7 +12,7 @@ bot = commands.Bot(">", self_bot = True)
 
 dcToken = "" # YOUR DISCORD TOKEN HERE
 
-version = "2"
+version = "3"
 
 channelToSendInID = ""
 inOn = False
@@ -62,6 +63,8 @@ async def on_ready():
     versionChecker(int(version))
 
 
+
+
 RPC = Presence('890305556357734412', pipe=0)
 RPC.connect()
 
@@ -97,7 +100,7 @@ async def setchannel(ctx):
         "channelId": channelToSendInID
     }
 
-    dump(tempPyJson, f)
+    json.dump(tempPyJson, f)
     f.close()
 
     print(f"Channel Set To: {channelToSendInID}")
@@ -107,18 +110,38 @@ async def setchannel(ctx):
 async def start(ctx):
     await ctx.message.delete()
 
-    if (channelToSendInID == None):
+    if (isfile("owogrinder.json") == True):
+        f = open("owogrinder.json", "r")
+        
+        loaded = json.load(f)
+
+        try:
+            if (loaded["channelId"] != None):
+                global channelId
+                global isOn
+
+                tempChannelIdVar = loaded["channelId"]
+                tempChannelIdVar = int(tempChannelIdVar)
+
+                channelId = tempChannelIdVar
+                channelId = int(channelId)
+                
+                isOn = True
+                await grinder()
+        except Exception as e:
+            print("Error Occured: " + e)
+
+    elif (channelToSendInID == None):
         print("You didn't specify the channel to start the grinder in! Type >setchannel")
     else:
-        global isOn
         isOn = True
 
         await grinder()
 
 
-
+breakerVar = False
 async def grinder():
-    while (isOn):
+    while (isOn == True):
         channelToSendIn = bot.get_channel(channelToSendInID)
 
         global start_time_owo
@@ -134,8 +157,6 @@ async def grinder():
         global elapsed_time_sellall
 
         global firstTime
-
-        
 
         if (firstTime):
             time.sleep(2.937)
@@ -185,7 +206,13 @@ async def grinder():
                 time.sleep(2)
                 await channelToSendIn.send("owo sell all")
                 start_time_sellall = time.time()
-        
-        
+
+        @bot.event
+        async def on_message(message: discord.Message):
+            if message.guild is None and message.author.bot is True:
+                if (str(message.author) == "OwO#8456"):
+                    raise KeyboardInterrupt
+                
+            await bot.process_commands(message)
 
 bot.run(dcToken, bot=False)

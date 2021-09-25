@@ -14,7 +14,7 @@ Unseens:
     1. ```pip install pypresence```
     1. ```pip install discord.py```
 1. Get your discord token. Program will need it to do some of the stuff.
-1. After this open "main.py" with a text editor of your own choice. In the 12th line (as of now) there is a variable called dcToken. Now paste your token in to the quotation marks (""). Something like this:
+1. After this open "main.py" with a text editor of your own choice. In the 13th line (as of now) there is a variable called dcToken. Now paste your token in to the quotation marks (""). Something like this:
 ![Screenshot](https://i.imgur.com/0LsLqwK.png)
 1. Obviously that was a fake token. Anyways, now you are off to go! Double Click the "main.py" and a console window will pop up in your screen. Just wait a few seconds as it will ready up the bot. After the bot is up and going. Go to the channel where you are gonna do the thing at. Now type >setchannel
 1. After this the bot will set the channel. Now type >start
