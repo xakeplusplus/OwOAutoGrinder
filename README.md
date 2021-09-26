@@ -13,6 +13,7 @@ Unseens:
     1. ```pip install requests```
     1. ```pip install pypresence```
     1. ```pip install discord.py```
+    1. ```pip install discord```
 1. Get your discord token. Program will need it to do some of the stuff.
 1. After this open "main.py" with a text editor of your own choice. In the 13th line (as of now) there is a variable called dcToken. Now paste your token in to the quotation marks (""). Something like this:
 ![Screenshot](https://i.imgur.com/0LsLqwK.png)
