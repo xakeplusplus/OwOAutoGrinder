@@ -1,4 +1,3 @@
-#from discord import channel, message
 from discord.ext import commands
 import discord
 from os.path import isfile
@@ -10,7 +9,7 @@ from pypresence import Presence
 
 bot = commands.Bot(">", self_bot = True)
 
-dcToken = "" # YOUR DISCORD TOKEN HERE
+dcToken = "NDcxNjMxNzczMzk1MzIwODM0.YUx1-A.IVTClU9Ip8kQpq1LbfR3otTf2dY" # YOUR DISCORD TOKEN HERE
 
 version = "3"
 
